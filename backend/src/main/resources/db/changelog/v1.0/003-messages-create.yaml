@@ -1,0 +1,55 @@
+databaseChangeLog:
+  - changeSet:
+      id: 003-messages-create
+      author: sisv1der
+      changes:
+        - createTable:
+            tableName: messages
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: content
+                  type: varchar(2000)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_by
+                  type: uuid
+                  constraints:
+                    nullable: false
+              - column:
+                  name: conversation_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+              - column:
+                  name: deleted
+                  type: boolean
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: timestamp
+
+        - addForeignKeyConstraint:
+            baseTableName: messages
+            baseColumnNames: created_by
+            constraintName: messages_created_by_fkey
+            referencedTableName: users
+            referencedColumnNames: id
+        - addForeignKeyConstraint:
+            baseTableName: messages
+            baseColumnNames: conversation_id
+            constraintName: messages_conversation_id_fkey
+            referencedTableName: conversations
+            referencedColumnNames: id
