@@ -241,9 +241,9 @@ TODO
 ## Roadmap
 
 ### Phase 1 — Project Foundation
-- [ ] Setup backend and frontend applications
-- [ ] Configure local development environment
-- [ ] Setup database and migrations
+- [x] Setup backend and frontend applications
+- [x] Configure local development environment
+- [x] Setup database and migrations
 
 ### Phase 2 — Authentication
 - [ ] Integrate Keycloak
