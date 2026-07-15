@@ -8,10 +8,17 @@ const Vox = () => {
   }
 
   if (auth.isAuthenticated) {
-    return <div>Logged in as {auth.user?.profile.preferred_username}</div>
-  }
+    console.log(auth.user)
 
-  return <button onClick={() => void auth.signinRedirect()}>Login</button>
+    return (
+      <>
+        <div>Logged in as {auth.user?.profile.preferred_username}</div>
+        <button onClick={() => void auth.signoutRedirect()}>Log Out</button>
+      </>
+    )
+  } else {
+    return <button onClick={() => void auth.signinRedirect()}>Login</button>
+  }
 }
 
 export default Vox

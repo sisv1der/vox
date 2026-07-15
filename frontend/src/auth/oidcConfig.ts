@@ -5,6 +5,7 @@ export const oidcConfig: AuthProviderProps = {
   client_id: import.meta.env.VITE_OIDC_CLIENT_ID,
 
   redirect_uri: import.meta.env.VITE_OIDC_REDIRECT_URI,
+  post_logout_redirect_uri: 'http://localhost:5173',
 
   response_type: 'code',
 

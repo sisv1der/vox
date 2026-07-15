@@ -253,10 +253,10 @@ TODO
 - [x] Create test users and roles
 
 #### Frontend Authentication
-- [ ] Configure OpenID Connect client
-- [ ] Implement login flow
-- [ ] Implement logout flow
-- [ ] Handle access and refresh tokens
+- [x] Configure OpenID Connect client
+- [x] Implement login flow
+- [x] Implement logout flow
+- [x] Handle access and refresh tokens
 
 #### Backend Security
 - [ ] Configure Spring Security OAuth2 Resource Server
