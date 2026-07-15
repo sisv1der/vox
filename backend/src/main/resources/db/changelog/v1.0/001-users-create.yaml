@@ -3,6 +3,10 @@ databaseChangeLog:
       id: 001-users-create
       author: sisv1der
       changes:
+        - sql:
+            dbms: postgresql
+            sql: |
+              CREATE TYPE user_role AS ENUM ('ADMIN', 'USER');
         - createTable:
             tableName: users
             columns:
@@ -15,6 +19,11 @@ databaseChangeLog:
               - column:
                   name: keycloak_id
                   type: uuid
+                  constraints:
+                    nullable: false
+              - column:
+                  name: role
+                  type: user_role
                   constraints:
                     nullable: false
               - column:

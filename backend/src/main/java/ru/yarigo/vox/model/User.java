@@ -2,6 +2,8 @@ package ru.yarigo.vox.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.JdbcType;
+import org.hibernate.dialect.type.PostgreSQLEnumJdbcType;
 
 import java.time.Instant;
 import java.util.List;
@@ -39,6 +41,10 @@ public class User {
             fetch = FetchType.LAZY
     )
     private List<ConversationMember> conversations;
+
+    @JdbcType(PostgreSQLEnumJdbcType.class)
+    @Column(nullable = false)
+    private UserRole role;
 
     @Column(nullable=false)
     private Instant lastSeenAt;
