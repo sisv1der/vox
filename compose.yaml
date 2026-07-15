@@ -1,22 +1,25 @@
 services:
-  postgres-kc:
-    image: postgres:latest
+  vox-postgres:
+    image: postgres:18.4
+    container_name: vox-postgres
     environment:
-      POSTGRES_DB: keycloak
+      POSTGRES_DB: postgres
       POSTGRES_USER: root
       POSTGRES_PASSWORD: root
     ports:
-      - "5435:5432"
+      - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql
+      - ./infrastructure/db/init:/docker-entrypoint-initdb.d
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U root -d keycloak"]
+      test: ["CMD-SHELL", "pg_isready -U root"]
       interval: 5s
       timeout: 5s
       retries: 10
 
-  keycloak:
-    image: quay.io/keycloak/keycloak:latest
+  vox-keycloak:
+    image: quay.io/keycloak/keycloak:26.7.0-0
+    container_name: vox-keycloak
     command:
       - start-dev
     ports:
@@ -26,7 +29,7 @@ services:
       KEYCLOAK_ADMIN_PASSWORD: admin
 
       KC_DB: postgres
-      KC_DB_URL_HOST: postgres-kc
+      KC_DB_URL_HOST: vox-postgres
       KC_DB_URL_PORT: 5432
       KC_DB_URL_DATABASE: keycloak
       KC_DB_USERNAME: root
@@ -37,7 +40,7 @@ services:
       KC_METRICS_ENABLED: true
 
     depends_on:
-      postgres-kc:
+      vox-postgres:
         condition: service_healthy
 
 volumes:

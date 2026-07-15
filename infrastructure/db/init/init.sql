@@ -1,0 +1,2 @@
+CREATE DATABASE vox;
+CREATE DATABASE keycloak;
