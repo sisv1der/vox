@@ -22,6 +22,7 @@ services:
     container_name: vox-keycloak
     command:
       - start-dev
+      - --import-realm
     ports:
       - "9090:8080"
     environment:
@@ -38,6 +39,9 @@ services:
       KC_HTTP_ENABLED: true
       KC_HEALTH_ENABLED: true
       KC_METRICS_ENABLED: true
+
+    volumes:
+      - ./infrastructure/keycloak/realm:/opt/keycloak/data/import
 
     depends_on:
       vox-postgres:

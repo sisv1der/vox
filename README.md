@@ -248,9 +248,15 @@ TODO
 ### Phase 2 — Authentication
 
 #### Keycloak Setup
-- [ ] Run Keycloak locally
-- [ ] Create realm and configure client
-- [ ] Create test users and roles
+- [x] Run Keycloak locally
+- [x] Create realm and configure client
+- [x] Create test users and roles
+
+#### Frontend Authentication
+- [ ] Configure OpenID Connect client
+- [ ] Implement login flow
+- [ ] Implement logout flow
+- [ ] Handle access and refresh tokens
 
 #### Backend Security
 - [ ] Configure Spring Security OAuth2 Resource Server
@@ -266,12 +272,6 @@ TODO
 - [ ] Configure application roles
 - [ ] Implement role-based access control
 - [ ] Protect endpoints based on permissions
-
-#### Frontend Authentication
-- [ ] Configure OpenID Connect client
-- [ ] Implement login flow
-- [ ] Implement logout flow
-- [ ] Handle access and refresh tokens
 
 ### Phase 3 — Messaging
 - [ ] Implement conversations
