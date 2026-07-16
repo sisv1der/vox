@@ -259,19 +259,19 @@ TODO
 - [x] Handle access and refresh tokens
 
 #### Backend Security
-- [ ] Configure Spring Security OAuth2 Resource Server
-- [ ] Validate JWT tokens issued by Keycloak
+- [x] Configure Spring Security OAuth2 Resource Server
+- [x] Validate JWT tokens issued by Keycloak
 - [ ] Extract user identity from JWT claims
+
+#### Authorization
+- [x] Configure application roles
+- [x] Implement role-based access control
+- [x] Protect endpoints based on permissions
 
 #### Application Users
 - [ ] Create domain User on first login
 - [ ] Link application User with Keycloak identity
 - [ ] Implement current user endpoint (`/me`)
-
-#### Authorization
-- [ ] Configure application roles
-- [ ] Implement role-based access control
-- [ ] Protect endpoints based on permissions
 
 ### Phase 3 — Messaging
 - [ ] Implement conversations

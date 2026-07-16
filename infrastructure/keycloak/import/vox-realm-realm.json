@@ -293,7 +293,23 @@
         "attributes" : { }
       } ],
       "security-admin-console" : [ ],
-      "vox-api" : [ ],
+      "vox-api" : [ {
+        "id" : "922a7a33-86dc-4536-a7da-c18c632c2027",
+        "name" : "ADMIN",
+        "description" : "",
+        "composite" : false,
+        "clientRole" : true,
+        "containerId" : "43a6683d-9424-4210-9c50-ad32bb9f6fc2",
+        "attributes" : { }
+      }, {
+        "id" : "cc5029fe-5c07-46ee-8a6c-2153e257db16",
+        "name" : "USER",
+        "description" : "",
+        "composite" : false,
+        "clientRole" : true,
+        "containerId" : "43a6683d-9424-4210-9c50-ad32bb9f6fc2",
+        "attributes" : { }
+      } ],
       "admin-cli" : [ ],
       "account-console" : [ ],
       "broker" : [ {

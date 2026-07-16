@@ -1,3 +1,71 @@
 spring:
   application:
     name: vox
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://${KEYCLOAK_URL:localhost:9090}/realms/${KEYCLOAK_REALM:vox-realm}
+
+  datasource:
+    url: jdbc:postgresql://${DB_URL:localhost:5432}/${DB_NAME:vox}
+    username: ${DB_USER:root}
+    password: ${DB_PASSWORD:root}
+
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+      auto-commit: false
+      connection-timeout: 30000
+      validation-timeout: 5000
+
+  jpa:
+    open-in-view: false
+
+    hibernate:
+      ddl-auto: validate
+
+    properties:
+      hibernate:
+        jdbc:
+          batch_size: 50
+
+        order_inserts: true
+        order_updates: true
+
+        default_batch_fetch_size: 32
+
+        query:
+          fail_on_pagination_over_collection_fetch: true
+
+        time_zone: UTC
+
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+
+  jackson:
+    time-zone: UTC
+
+jwt:
+  client-id: vox-api
+  principal-claim: sub
+
+cors:
+  allowed-origins:
+    - http://localhost:9090
+    - https://localhost:9090
+    - http://localhost:5173
+    - https://localhost:5173
+    - https://svivy.ru
+  allowed-headers:
+    - "*"
+  allowed-methods:
+    - GET
+    - POST
+    - PUT
+    - DELETE
+    - PATCH
+    - OPTIONS
+  allow-credentials: true
