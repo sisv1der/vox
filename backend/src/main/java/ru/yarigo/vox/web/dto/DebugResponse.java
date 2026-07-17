@@ -1,4 +1,4 @@
-package ru.yarigo.vox.web;
+package ru.yarigo.vox.web.dto;
 
 import java.util.Collection;
 
